@@ -35,4 +35,4 @@ The Expense Reimbursement System allows for submission of requests for reimburse
 
 # Getting Started
 
-- git clone 
+- git clone https://github.com/KevinV95/Revature_ExpenseReimbursement_P1.git
