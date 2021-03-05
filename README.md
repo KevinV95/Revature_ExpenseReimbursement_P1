@@ -35,4 +35,11 @@ The Expense Reimbursement System allows for submission of requests for reimburse
 
 # Getting Started
 
+1. Be sure to have Apache Tomcat 8.5 installed.
+2. Be sure to have the Java 8 runtime environment installed.
+
 - git clone https://github.com/KevinV95/Revature_ExpenseReimbursement_P1.git
+
+# Contributors
+
+- Kevin Varughese
