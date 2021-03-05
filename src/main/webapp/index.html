@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./Styles/index.css">
+	<title>Welcome Page</title>
+</head>
+<body>
+	<h1>Round2</h1>
+	<div>
+		<h2>Employee Login</h2>
+		<form action="./api/empLogin" method="post">
+			<input type="text" placeholder="Username" name="empLogin" id="empLogin">
+			<input type="password" placeholder="Password" name="empPass" id="empPass">
+			<button>Submit</button>
+		</form>
+
+	</div>
+	<br>
+
+	<div>
+		<h2>Manager Login</h2>
+		<form action="./api/manaLogin" method="post">
+			<input type="text" placeholder="Username" name="manaLogin" id="manaLogin">
+			<input type="password" placeholder="Password" name="manaPass" id="manaPass">
+			<button>Submit</button>
+		</form>
+
+	</div>
+
+	<script src="./Scripts/index.js"></script>
+</body>
+</html>

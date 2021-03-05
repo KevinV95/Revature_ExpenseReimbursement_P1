@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Doctype Declaration, telling our IDE/compiler which tags are valid -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        
+<hibernate-configuration>
+	<!-- The Session-Factory is the crucial tag in this config xml-->
+	<!-- Such as: database URL, database credentials, 
+		toggle to log Hibernate's SQL to the console
+		specify the dialect of SQL
+		location of any "mapped resources"
+		etc
+	 -->
+	<session-factory>
+		<!-- Specify the PostgresDB Driver, according to Docs -->
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<!-- Dialect of SQL, according to Docs -->
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		
+		<!-- These DB Credentials are specified in Class-based config, util/HibernateSessionFactory class -->
+		<!-- 
+		<property name="hibernate.connection.url"></property>
+		<property name="hibernate.connection.username"></property>
+		<property name="hibernate.connection.password"></property>		
+		 -->
+		<!-- Toggle "Hibernate's SQL shown in console" -->
+		<property name="show_sql">false</property>
+		
+		<!-- Because RDS caps concurrent connections (of a single user) @ something low -->
+		<property name="hibernate.connection.pool_size">2</property>
+		
+		<!-- Defines how Hibernate Sessions are handled. Sessions are tracked by their "thread of execution" here -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		
+		<!-- ####################################################################### -->
+		<!-- The BIG one -->
+		<!-- The Mode of Hibernate for schema DDL: Create/drop Update Validate -->
+		<property name="hibernate.hbm2ddl.auto">validate</property>
+		<!-- ####################################################################### -->
+		
+		<!-- We generally run in Create ONCE, then stay in Validate -->
+		<!-- But "Best Practices" is to have your own SQL DDL Script, in case you switch techs -->
+		
+	
+		<!-- Map: tell Hibernate where the mapped resources are; no autodetection -->
+		<mapping class="com.revature.model.Employee"/>
+		<mapping class="com.revature.model.ReimbursementRequest"/>
+
+	</session-factory>
+	 <!-- All DB work is done within a Session obj -->
+
+</hibernate-configuration>
